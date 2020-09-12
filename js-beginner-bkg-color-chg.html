@@ -8,8 +8,12 @@
 </head>
 <body id="bkg">
 
-<div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-outline-secondary" id="chg-color">Click Me!</button>
+<div class="container">
+    <div class="row max-height align-items-center text-center">
+        <div class="col-12">
+            <button class="btn btn-outline-secondary" id="chg-color">Click Me!</button>
+        </div>
+    </div>
 </div>
 
 
@@ -19,13 +23,28 @@
 <script>
 
     var colors = ['Red','Orange','Yellow','Green','Blue','Indigo','Violet'];
-    var randomNumber = Math.floor((Math.random() * 7))
+    var $body = $('#bkg');
+    var $button = $('#chg-color');
 
-    var colorSelector = colors[randomNumber];
+    // console.log(colorSelector);
 
-    $('#chg-color').click(function(){
-        $('#bkg').css('background-color', colorSelector)
-    });
+
+
+    $('#bkg').css('background-color', '#F0D7A4');
+    $('#chg-color').on('click', backgroundColor);
+
+    function backgroundColor () {
+        var colorIndex = Math.floor((Math.random() * colors.length));
+        var colorSelector = colors[colorIndex];
+        console.log(colorSelector);
+        $('#bkg').css('background-color', colorSelector);
+    }
+
+
+
+
+
+
 </script>
 </body>
 </html>
