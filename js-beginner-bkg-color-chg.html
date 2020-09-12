@@ -5,45 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>JS Beginner Bkg Color Chg</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .alignment {
+            margin: 50vh 0;
+        }
+    </style>
 </head>
-<body id="bkg">
+<body class="h-100" id="bkg">
+<div class="text-center">
+<button class="btn btn-outline-secondary alignment" id="chg-color">Click Me!</button>
 
-<div class="container">
-    <div class="row max-height align-items-center text-center">
-        <div class="col-12">
-            <button class="btn btn-outline-secondary" id="chg-color">Click Me!</button>
-        </div>
-    </div>
 </div>
-
 
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 
-    var colors = ['Red','Orange','Yellow','Green','Blue','Indigo','Violet'];
-    var $body = $('#bkg');
-    var $button = $('#chg-color');
+    $(document).ready(function(){
+        console.log("We are ready!");
 
-    // console.log(colorSelector);
+        var colors = ['Red','Orange','Yellow','Green','Blue','Indigo','Violet'];
+        var $body = $('#bkg');
+        var $button = $('#chg-color');
 
+        $body.css('background-color', '#F0D7A4');
+        $button.on('click', backgroundColor);
 
-
-    $('#bkg').css('background-color', '#F0D7A4');
-    $('#chg-color').on('click', backgroundColor);
-
-    function backgroundColor () {
-        var colorIndex = Math.floor((Math.random() * colors.length));
-        var colorSelector = colors[colorIndex];
-        console.log(colorSelector);
-        $('#bkg').css('background-color', colorSelector);
-    }
-
-
-
-
-
+        function backgroundColor () {
+            var colorIndex = Math.floor((Math.random() * colors.length));
+            var colorSelector = colors[colorIndex];
+            console.log(colorSelector);
+            $body.css('background-color', colorSelector);
+        }
+    });
 
 </script>
 </body>
